@@ -3,7 +3,7 @@ import { filterInvalidElements } from '../utils';
 import { LOCALHOST } from './constants';
 
 export const sendLoginRequest = async ({ email, password }) => {
-	const url = `${LOCALHOST}/login`;
+	const url = `${LOCALHOST}:3030/login`;
 	const body = { email, password };
 
 	try {
@@ -34,7 +34,7 @@ export const getListOfSites = async () => {
 };
 
 export const fetchParseCopyrights = async (siteUrl) => {
-	const fetchUrl = `${LOCALHOST}/parse-copyright`;
+	const fetchUrl = `${LOCALHOST}:3030/parse-copyright`;
 	const body = { siteUrl };
 	try {
 		const response = await axios.post(fetchUrl, body, {
