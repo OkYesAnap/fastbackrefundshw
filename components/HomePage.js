@@ -6,13 +6,14 @@ const HomePage = ({ navigation }) => {
 	const [listOfSites, setListOfSites] = useState([]);
 	const [loading, setLoading] = useState(false);
 
+	const fetchData = async () => {
+		setLoading(true);
+		const list = await getListOfSites();
+		setListOfSites(list);
+		setLoading(false);
+	};
+
 	useEffect(() => {
-		const fetchData = async () => {
-			setLoading(true);
-			const list = await getListOfSites();
-			setListOfSites(list);
-			setLoading(false);
-		};
 		fetchData();
 	}, [setLoading, setListOfSites]);
 
