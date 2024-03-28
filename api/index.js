@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { filterInvalidElements } from '../utils';
-
-const LOCALHOST = "http://192.168.2.3:3030";
+import { LOCALHOST } from './constants';
 
 export const sendLoginRequest = async ({ email, password }) => {
 	const url = `${LOCALHOST}/login`;

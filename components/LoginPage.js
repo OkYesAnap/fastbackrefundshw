@@ -9,7 +9,7 @@ export default function LoginPage ({ navigation }) {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [showPassword, setShowPassword] = useState(false);
+	const [securePassword, setSecurePassword] = useState(true);
 	const [loginError, setLoginError] = useState('');
 
 	const handleEmailSubmit = async () => {
@@ -42,10 +42,10 @@ export default function LoginPage ({ navigation }) {
 					onChangeText={password => setPassword(password)}
 					value={password}
 					placeholder="Enter your password"
-					secureTextEntry={showPassword}
+					secureTextEntry={securePassword}
 				/>
-				<TouchableOpacity style={styles.eyeButtonContainer} onPress={() => setShowPassword(!showPassword)}>
-					<Text style={styles.eyeButton}>{showPassword ? '🕶️' : '👓️'}</Text>
+				<TouchableOpacity style={styles.eyeButtonContainer} onPress={() => setSecurePassword(!securePassword)}>
+					<Text style={styles.eyeButton}>{securePassword ? '🕶️' : '👓️'}</Text>
 				</TouchableOpacity>
 			</View>
 			<Button
